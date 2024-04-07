@@ -44,7 +44,7 @@ const Login = () => {
 	</div>
 	<p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
     <NavLink to="/register">
-    <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</a>
+    <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800 ml-5 font-bold">Sign up</a>
     </NavLink>
 		
 	</p>

@@ -4,6 +4,12 @@ import './index.css'
 
 
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
+
+
 
 import {
   createBrowserRouter,
@@ -14,6 +20,7 @@ import Home from './Components/Home';
 import Error from './Components/Error';
 import Login from './Components/Login';
 import Register from './Components/Register';
+import About from './Components/About';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/about',
+        element: <About></About>
       },
       {
         path: '/login',

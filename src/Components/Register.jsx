@@ -40,7 +40,7 @@ const Register = () => {
 			</div>
 			<p className="px-6 text-sm text-center dark:text-gray-600">Already have Account?
             <NavLink to="/login">
-            <a rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-600">LogIn</a>.
+            <a rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-600 ml-4 font-bold">LogIn</a>.
             </NavLink>
 				
 			</p>

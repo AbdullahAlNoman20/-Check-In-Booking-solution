@@ -2,7 +2,7 @@
 
 const Slider = () => {
     return (
-        <div>
+        <div className="m-5 " data-aos="zoom-in" data-aos-duration="2000">
             <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
