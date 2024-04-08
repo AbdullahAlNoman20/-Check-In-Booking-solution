@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="m-5">
+    <div className="p-5 ">
 
-<div className="navbar bg-base-100">
+<div className="navbar">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ const Nav = () => {
             </NavLink>
       </ul>
     </div>
-    <a className="text-xl lg:text-5xl font-bold" ><i className="fa-solid fa-building-circle-check"></i> Check-In</a>
+    <a className="text-xl lg:text-5xl font-bold" data-aos="zoom-in" data-aos-duration="2000"><i className="fa-solid fa-building-circle-check text-orange-500"></i> Check<span className="text-orange-500">-In</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -48,21 +48,21 @@ const Nav = () => {
             </li>
             </NavLink>
             <NavLink to="/updateProfile">
-            <li>
+            <li className="">
               <a> <i className="fa-solid fa-file-pen"></i>Update Profile</a>
             </li>
             </NavLink>
             <NavLink to="/userprofile">
-            <li>
+            <li className="">
               <a> <i className="fa-solid fa-user-tie"></i>User Profile</a>
             </li>
             </NavLink>
       
     </ul>
   </div>
-  <div className="navbar-end hidden lg:block">
+  <div className="navbar-end ">
   <div className="avatar flex items-center justify-end gap-2">
-            <div className="w-16 rounded">
+            <div className="w-16 rounded-full ">
               <img
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                 alt="Tailwind-CSS-Avatar-component"
@@ -70,15 +70,15 @@ const Nav = () => {
             </div>
 
             <NavLink to="/login">
-            <button className="btn">
-            <i className="fa-solid fa-right-to-bracket"></i>Login
+            <button className="btn btn-outline hidden lg:block ">
+            <i className="fa-solid fa-right-to-bracket"></i> Login
             </button>
             </NavLink>
             
 
                 <NavLink to="/">
-                <button className="btn">
-                <i className="fa-solid fa-right-from-bracket"></i>Logout
+                <button className="btn btn-outline btn-warning hidden lg:block">
+                <i className="fa-solid fa-right-from-bracket"></i> Logout
                      </button>
                 </NavLink>
             
