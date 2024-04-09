@@ -3,7 +3,7 @@
 Live Site: 
 # checkin-24.surge.sh
 
-# npm installation:
+# npm packages Use:
 a. AOS Package
 b. Animate.css
 c. Swiper slider

@@ -6,7 +6,7 @@ import './Slider.css';
 
 const Slider = () => {
     return (
-        <div className="m-5 " data-aos="zoom-in" data-aos-duration="2000">
+        <div className="pt-20 bg-sky-900">
 
       <Swiper spaceBetween={30}
         centeredSlides={true}
@@ -27,7 +27,7 @@ const Slider = () => {
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Stay, Dine, Explore</h1>
+      <h1 className="mb-5 text-5xl font-bold" data-aos="zoom-in" data-aos-duration="2000">Stay, Dine, Explore</h1>
       <p className="mb-5">Experience the best of Bangladesh with Check-In. From luxury stays to gourmet dining, your journey of discovery starts here.</p>
       <button className="btn btn-outline btn-warning">Book Now</button>
     </div>

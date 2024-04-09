@@ -1,5 +1,9 @@
+import { Link } from "react-router-dom";
+
+
 const Service = ({ Services }) => {
   const {
+    id,
     image,
     title,
     description,
@@ -11,8 +15,8 @@ const Service = ({ Services }) => {
   } = Services;
 
   return (
-    <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="text-black  ">
+      <div className="card w-96 bg-base-100 shadow-xl h-[700px]">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl" />
         </figure>
@@ -20,10 +24,10 @@ const Service = ({ Services }) => {
           <h2 className="card-title">{title}</h2>
           <p>{description}</p>
 
-          <p className="">
+          <p className=" flex flex-col gap-2 ">
             {Services.facility.map((facilities) => (
-              <span key={Services.id} className="p-1 text-red-900">
-                #{facilities}
+              <span key={Services.id} className="p-1 text-sky-900 border border-yellow-500 rounded-xl ">
+                <i className="fa-solid fa-check"></i> {facilities}
               </span>
             ))}
           </p>
@@ -43,10 +47,13 @@ const Service = ({ Services }) => {
           <p>
             <i className="fa-solid fa-location-dot"></i> Location: {location}
           </p>
-          <div className="card-actions w-full">
-            <button className="btn btn-outline btn-warning w-full">
+          <div className="card-actions w-full flex justify-center">
+           <Link to={`/details/${id}`}>
+           <button className="btn btn-outline btn-warning w-full">
               Details
             </button>
+           </Link>
+            
           </div>
         </div>
       </div>

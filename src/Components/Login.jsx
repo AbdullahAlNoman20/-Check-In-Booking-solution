@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div className=" flex justify-center my-5">
+        <div className=" flex justify-center py-5 bg-sky-900">
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
 	<form noValidate="" action="" className="space-y-6">
@@ -44,7 +44,7 @@ const Login = () => {
 	</div>
 	<p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
     <NavLink to="/register">
-    <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800 ml-5 font-bold">Sign up</a>
+    <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800 ml-5 font-bold">Register Now</a>
     </NavLink>
 		
 	</p>

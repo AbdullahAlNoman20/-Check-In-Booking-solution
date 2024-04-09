@@ -21,6 +21,8 @@ import Error from './Components/Error';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import About from './Components/About';
+import Details from './Components/Details';
+import Profile from './Components/Profile';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,15 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/details/:id',
+        element: <Details></Details>,
+        loader: () =>  fetch('../Service.json')
+      },
+      {
+        path: '/updateProfile',
+        element: <Profile></Profile>
       }
     ]
   },
