@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import Estates from "./Estates";
 import Slider from "./Slider";
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                 <title>Check-In | Home</title>
+            </Helmet>
             <Slider></Slider>
             <Estates></Estates>
         </div>
