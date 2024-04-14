@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
@@ -8,6 +8,8 @@ const Register = () => {
 
 	const {registerUser} = useContext(AuthContext)
 
+	const [error,setError] = useState(" ")
+
 	// console.log(registerUser);
 
 	const handleRegister = (e) => {
@@ -16,6 +18,20 @@ const Register = () => {
 		const email = e.target.email.value;
 		const photo = e.target.photo.value;
 		const password = e.target.password.value;
+
+		if (password.length<6){
+			setError("Password less then 6 character")
+			return
+		}
+		if(!/[A-Z]/.test(password)){
+			setError("Password has no Uppercase letter")
+			return
+		}
+		if(!/[a-z]/.test(password)){
+			setError("Password has no lowercase letter")
+			return
+		}
+		else setError('')
 
 		console.log(name,email,photo,password)
 
@@ -68,6 +84,9 @@ const Register = () => {
 					<label htmlFor="password" className="text-sm">Password</label>
 				</div>
 				<input name='password' type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
+			{
+				error && <p className="text-red-600">{error}</p>
+			}
 			</div>
 		</div>
 		<div className="space-y-2">
