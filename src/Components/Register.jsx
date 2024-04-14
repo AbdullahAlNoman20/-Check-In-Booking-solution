@@ -6,7 +6,7 @@ import { AuthContext } from "./Providers/AuthProviders";
 
 const Register = () => {
 
-	const {registerUser} = useContext(AuthContext)
+	const {registerUser,setUser} = useContext(AuthContext)
 
 	const [error,setError] = useState(" ")
 
@@ -38,7 +38,9 @@ const Register = () => {
 	// 	// Create new user
 		registerUser (email,password)
 		.then (result => {
-			console.log(result.user)
+			{
+				setUser(result.user)
+			}
 		})
 
 		.catch(error =>{
