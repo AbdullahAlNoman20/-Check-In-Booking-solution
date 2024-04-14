@@ -4,7 +4,7 @@ import { AuthContext } from "./Providers/AuthProviders";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user)
+  console.log(user);
 
   const handleSignOut = () => {
     logOut().then().catch();
@@ -49,14 +49,16 @@ const Nav = () => {
                   </a>
                 </li>
               </NavLink>
-              <NavLink to="/updateProfile">
-                <li>
-                  <a>
-                    {" "}
-                    <i className="fa-solid fa-user-tie"></i>Profile
-                  </a>
-                </li>
-              </NavLink>
+        
+                <NavLink to="/updateProfile">
+                  <li>
+                    <a>
+                      {" "}
+                      <i className="fa-solid fa-user-tie"></i>Profile
+                    </a>
+                  </li>
+                </NavLink>
+          
             </ul>
           </div>
           <a
@@ -86,10 +88,10 @@ const Nav = () => {
             </NavLink>
 
             <NavLink to="/updateProfile">
-              <li className="">
+              <li>
                 <a>
                   {" "}
-                  <i className="fa-solid fa-user-tie"></i>User Profile
+                  <i className="fa-solid fa-user-tie"></i>Profile
                 </a>
               </li>
             </NavLink>
@@ -98,9 +100,20 @@ const Nav = () => {
 
         <div className="navbar-end ">
           <div className="">
-            {
-              user && user.email 
-            }
+            {user?.email ? (
+          
+                <div className="relative flex-shrink-0 mr-5">
+                  <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-400 border rounded-full dark:text-gray-800 dark:border-gray-50"></span>
+                  <img
+                    src="https://source.unsplash.com/50x50/?portrait"
+                    alt=""
+                    className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
+                  />
+                </div>
+              
+            ) : (
+              <div className=""></div>
+            )}
           </div>
           {user ? (
             <NavLink to="/">

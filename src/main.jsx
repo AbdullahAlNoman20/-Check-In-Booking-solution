@@ -16,7 +16,8 @@ import About from "./Components/About";
 import Details from "./Components/Details";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProviders from "./Components/Providers/AuthProviders";
-// import privateRoute from "./Components/privateRoute";
+import Profile from "./Components/Profile";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,14 +46,10 @@ const router = createBrowserRouter([
         element: <Details></Details>,
         loader: () => fetch("../Service.json"),
       },
-      // {
-      //   path: "/updateProfile",
-      //   element: (
-      //     <privateRoute>
-      //       <Profile></Profile>
-      //     </privateRoute>
-      //   ),
-      // },
+      {
+        path: "/updateProfile",
+        element: <ProtectedRoute><Profile></Profile></ProtectedRoute>
+      }
     ],
   },
 ]);

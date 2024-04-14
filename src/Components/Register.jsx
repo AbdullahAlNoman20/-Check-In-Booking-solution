@@ -6,7 +6,7 @@ import { AuthContext } from "./Providers/AuthProviders";
 
 const Register = () => {
 
-	const {registerUser,setUser} = useContext(AuthContext)
+	const {registerUser,setUser,updateProfile} = useContext(AuthContext)
 
 	const [error,setError] = useState(" ")
 

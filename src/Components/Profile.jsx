@@ -15,15 +15,15 @@ const Profile = ({children}) => {
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="username" className="text-sm">Name</label>
-					<input id="username" type="text" placeholder="Name" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300" />
+					<input id="username" type="text" placeholder="Name" className="border p-2  w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300" />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="website" className="text-sm">Photo URL</label>
-					<input id="website" type="text" placeholder="https://" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300" />
+					<input id="website" type="text" placeholder="https://" className="border p-2 w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300" />
 				</div>
 				<div className="col-span-full">
 					<label htmlFor="bio" className="text-sm">Bio</label>
-					<textarea id="bio" placeholder="Bio" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300"></textarea>
+					<textarea id="bio" placeholder="Bio" className="border p-2 w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300"></textarea>
 				</div>
 				<div className="col-span-full">
 					<label htmlFor="bio" className="text-sm">Photo</label>
