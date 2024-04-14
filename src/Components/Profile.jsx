@@ -1,6 +1,9 @@
 
 
-const Profile = () => {
+const Profile = ({children}) => {
+
+
+
     return (
         <div className="">
             <section className="p-6 dark:bg-sky-900 dark:text-gray-900">

@@ -1,13 +1,28 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "./Providers/AuthProviders";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
-    const username = e.target.username.value;
+    const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(username, password);
+    console.log(email, password);
+
+
+    signIn(email,password)
+    .then(Result =>{
+      console.log(Result.user)
+    })
+
+    .catch(error =>{
+      console.log(error)
+    })
+
   };
 
   return (
@@ -19,20 +34,22 @@ const Login = () => {
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form
-          onSubmit={handleLogin}
+         onSubmit={handleLogin}
           noValidate=""
           action=""
           className="space-y-6"
         >
+         
+
           <div className="space-y-1 text-sm">
-            <label htmlFor="username" className="block dark:text-gray-600">
-              Username
+            <label htmlFor="email" className="block mb-2 text-sm">
+              Email address
             </label>
             <input
-              name="username"
+              name="email"
               type="text"
               id="username"
-              placeholder="Username"
+              placeholder="Email"
               className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
           </div>

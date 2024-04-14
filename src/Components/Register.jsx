@@ -1,17 +1,34 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "./Providers/AuthProviders";
 
 
 const Register = () => {
 
+	const {registerUser} = useContext(AuthContext)
+
+	// console.log(registerUser);
+
 	const handleRegister = (e) => {
 		e.preventDefault()
 		const name = e.target.name.value;
-		const gmail = e.target.gmail.value;
+		const email = e.target.email.value;
 		const photo = e.target.photo.value;
 		const password = e.target.password.value;
 
-		console.log(name,gmail,photo,password)
+		console.log(name,email,photo,password)
+
+	// 	// Create new user
+		registerUser (email,password)
+		.then (result => {
+			console.log(result.user)
+		})
+
+		.catch(error =>{
+			console.error(error)
+		})
+
 		
 	}
 
@@ -28,29 +45,29 @@ const Register = () => {
 		<h1 className="my-3 text-4xl font-bold">Register Now</h1>
 		<p className="text-sm dark:text-gray-600">Start a new Journey with Check-in </p>
 	</div>
-	<form onSubmit={handleRegister} noValidate="" action="" className="space-y-12">
+	<form onSubmit={handleRegister} noValidate="" action="" className="space-y-12">	{/* onSubmit={handleRegister}  */}
 		<div className="space-y-4">
         <div>
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Your Name</label>
 				</div>
-				<input name='name' type="text" id="username" placeholder="Username" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+				<input name='name' type="text" placeholder="Username" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
 			<div>
 				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-				<input name='gmail' type="text" id="username" placeholder="Gmail" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+				<input name='email' type="text"  placeholder="Email" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Photo URL</label>
 				</div>
-				<input name='photo' type="text" id="username" placeholder="https/" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+				<input name='photo' type="text" placeholder="https/" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Password</label>
 				</div>
-				<input name='password' type="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
+				<input name='password' type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
 			</div>
 		</div>
 		<div className="space-y-2">
