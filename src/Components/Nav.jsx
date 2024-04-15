@@ -8,7 +8,7 @@ import ImageHoverPopup from "./ImageHoverPopup";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = () => {
     logOut().then().catch();
@@ -67,7 +67,7 @@ const Nav = () => {
           </div>
           <a
             className="text-xl lg:text-5xl lg:font-bold"
-            data-aos="zoom-in"
+            data-aos="fade-right"
             data-aos-duration="2000"
           >
             <i className="fa-solid fa-building-circle-check text-yellow-500"></i>{" "}
@@ -75,7 +75,11 @@ const Nav = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul 
+          className="menu menu-horizontal px-1"
+          data-aos="fade-left"
+          data-aos-duration="2000"
+          >
             <NavLink to="/">
               <li>
                 <a>

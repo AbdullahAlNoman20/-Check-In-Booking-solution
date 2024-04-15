@@ -14,7 +14,7 @@ const Estates = () => {
   return (
     <div className="bg-sky-900 text-white lg:p-5 pb-5">
       <div className="flex justify-center items-center flex-col p-14">
-        <h1 className="font-bold text-4xl animate__animated animate__fadeInDown">
+        <h1 className="font-bold text-4xl animate__animated animate__bounce">
           Our Services
         </h1>
         <p>
@@ -27,13 +27,16 @@ const Estates = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
         {Services.map((Services) => (
-          <Service key={Service.id} Services={Services}></Service>
+          <Service key={Services.id} Services={Services}></Service>
         ))}
       </div>
 
 
       <div className="mt-5">
-      <div className="p-6 py-12 bg-sky-800 dark:text-gray-50 rounded-xl">
+      <div className="p-6 py-12 bg-sky-800 dark:text-gray-50 rounded-xl"
+      data-aos-duration="2000"
+      data-aos="fade-left"
+      >
 	<div className="container mx-auto">
 		<div className="flex flex-col lg:flex-row items-center justify-between">
 			<h2 className="text-center text-6xl tracking-tighter font-bold">Up to

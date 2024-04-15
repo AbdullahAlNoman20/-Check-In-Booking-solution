@@ -16,7 +16,8 @@ const Service = ({ Services }) => {
 
   return (
     <div className="text-black  ">
-      <div className="card w-96 bg-base-100 shadow-xl h-[700px]">
+      <div className="card w-96 bg-base-100 shadow-xl h-[700px]" data-aos-duration="2000"
+    data-aos="zoom-in">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl" />
         </figure>
@@ -49,7 +50,7 @@ const Service = ({ Services }) => {
           </p>
           <div className="card-actions w-full flex justify-center">
            <Link to={`/details/${id}`}>
-           <button className="btn btn-outline btn-warning w-full">
+           <button className="btn btn-wide btn-outline btn-warning ">
               Details
             </button>
            </Link>

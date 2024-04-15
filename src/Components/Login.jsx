@@ -1,6 +1,6 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import 'animate.css';
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -97,14 +97,15 @@ const Login = () => {
       </Helmet>
 
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
-        <h1 className="text-2xl font-bold text-center">Login</h1>
+        <h1 className="text-2xl font-bold text-center animate__animated animate__pulse">Login</h1>
         <form
           onSubmit={handleLogin}
           noValidate=""
           action=""
           className="space-y-6"
         >
-          <div className="space-y-1 text-sm">
+          <div className="space-y-1 text-sm" data-aos-duration="1000"
+          data-aos="fade-right">
             <label htmlFor="email" className="block mb-2 text-sm">
               Email address
             </label>
@@ -117,7 +118,8 @@ const Login = () => {
               className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
           </div>
-          <div className="space-y-1 text-sm">
+          <div className="space-y-1 text-sm" data-aos-duration="2000"
+          data-aos="fade-left">
             <label htmlFor="password" className="block dark:text-gray-600">
               <div className=" flex justify-between">
                 <p>Password</p>

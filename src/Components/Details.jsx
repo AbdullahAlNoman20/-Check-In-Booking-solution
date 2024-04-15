@@ -12,7 +12,10 @@ const Details = () => {
     <div className="p-5 bg-sky-900">
       <section className="dark:bg-sky-900 dark:text-gray-800">
         <div className="container flex flex-col-reverse mx-auto lg:flex-row">
-          <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-white dark:text-black">
+          <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-white dark:text-black" 
+          data-aos-duration="2000"
+          data-aos="fade-right"
+          >
             <div className="flex space-x-2 sm:space-x-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +86,10 @@ const Details = () => {
 
 
           </div>
-          <div className="lg:w-1/2 xl:w-3/5 dark:bg-sky-900">
+          <div className="lg:w-1/2 xl:w-3/5 dark:bg-sky-900" 
+          data-aos-duration="2000"
+          data-aos="fade-left"
+          >
             <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
               <img
                 src={service.image}

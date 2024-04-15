@@ -1,6 +1,7 @@
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'animate.css';
 
 
 import { useContext, useState } from "react";
@@ -53,16 +54,15 @@ const Register = () => {
 				setUser(result.user)
 				e.target.reset()
 				navigateHome('/')
-				toast.success('Welcome to Check-In');
 			}
 		})
 
 		.catch(error =>{
 			console.error(error)
 			setRegisterError(error.message)
-			toast.error(error.message);
+			toast.warn(error.message);
 		})
-
+		toast.success('Welcome to Check-In');
 		
 	}
 
@@ -76,28 +76,32 @@ const Register = () => {
             </Helmet>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800">
 	<div className="mb-8 text-center">
-		<h1 className="my-3 text-4xl font-bold">Register Now</h1>
+		<h1 className="my-3 text-4xl font-bold animate__animated animate__pulse">Register Now</h1>
 		<p className="text-sm dark:text-gray-600">Start a new Journey with Check-in </p>
 	</div>
 	<form onSubmit={handleRegister} noValidate="" action="" className="space-y-12">	{/* onSubmit={handleRegister}  */}
 		<div className="space-y-4">
-        <div>
+        <div data-aos-duration="1000"
+          data-aos="fade-right">
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Your Name</label>
 				</div>
 				<input required name='name' type="text" placeholder="Username" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
-			<div>
+			<div data-aos-duration="1500"
+          data-aos="fade-left">
 				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
 				<input required name='email' type="text"  placeholder="Email" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
-			<div>
+			<div data-aos-duration="2000"
+          data-aos="fade-right">
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Photo URL</label>
 				</div>
 				<input required name='photo' type="text" placeholder="https/" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
-			<div>
+			<div data-aos-duration="2500"
+          data-aos="fade-left">
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Password</label>
 				</div>

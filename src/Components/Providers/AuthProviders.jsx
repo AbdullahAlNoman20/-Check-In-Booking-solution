@@ -70,7 +70,7 @@ const AuthProviders = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("user from auth", currentUser);
+      // console.log("user from auth", currentUser);
       setUser(currentUser);
     });
     return () => {
@@ -87,7 +87,7 @@ const AuthProviders = ({ children }) => {
     googleLogin,
     facebookLogin,
     githubLogin,
-    updateProfile
+    // updateProfile
   };
 
   return (
