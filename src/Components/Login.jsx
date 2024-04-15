@@ -1,31 +1,53 @@
-import { useContext, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
 
+
 const Login = () => {
+
+  // For Showing Error
+
+  const [loginError,setLoginError] = useState(" ")
+
   const { signIn, googleLogin, setUser, facebookLogin, user,githubLogin } =
     useContext(AuthContext);
 
   // after login user where to go
   const location = useLocation();
   const navigate = useNavigate();
+  const navigateHome = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(email, password);
+    // console.log(email, password);
+
+    // Reset Error
+    setLoginError('')
+    
+
 
     signIn(email, password)
       .then((Result) => {
         console.log(Result.user);
+        toast.success('Login Successfully');
+        e.target.reset()
+        navigateHome('/')
       })
 
       .catch((error) => {
         console.log(error);
+        setLoginError(error.message)
+        toast.error(error.message);
       });
+
+     
   };
 
   // Google Login
@@ -87,6 +109,7 @@ const Login = () => {
               Email address
             </label>
             <input
+              required
               name="email"
               type="text"
               id="username"
@@ -101,6 +124,7 @@ const Login = () => {
               </div>
             </label>
             <input
+              required
               name="password"
               type="password"
               id="password"
@@ -116,6 +140,9 @@ const Login = () => {
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">
             Sign in
           </button>
+          {
+					loginError && <p className='text-red-500'>{loginError}</p>
+				}
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
@@ -178,9 +205,13 @@ const Login = () => {
             </a>
           </NavLink>
         </p>
+
       </div>
+      <ToastContainer />
     </div>
-  );
+  
+);
+  
 };
 
 export default Login;

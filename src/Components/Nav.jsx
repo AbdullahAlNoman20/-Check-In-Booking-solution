@@ -1,6 +1,10 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
+import ImageHoverPopup from "./ImageHoverPopup";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -8,6 +12,7 @@ const Nav = () => {
 
   const handleSignOut = () => {
     logOut().then().catch();
+    toast.error("Attention. You are LOGOUT");
   };
 
   return (
@@ -49,16 +54,15 @@ const Nav = () => {
                   </a>
                 </li>
               </NavLink>
-        
-                <NavLink to="/updateProfile">
-                  <li>
-                    <a>
-                      {" "}
-                      <i className="fa-solid fa-user-tie"></i>Profile
-                    </a>
-                  </li>
-                </NavLink>
-          
+
+              <NavLink to="/updateProfile">
+                <li>
+                  <a>
+                    {" "}
+                    <i className="fa-solid fa-user-tie"></i>Profile
+                  </a>
+                </li>
+              </NavLink>
             </ul>
           </div>
           <a
@@ -99,18 +103,16 @@ const Nav = () => {
         </div>
 
         <div className="navbar-end ">
+          <div className="mr-3 hidden lg:block">
+            {user && <p className="underline ">{user.email}</p>}
+          </div>
           <div className="">
             {user?.email ? (
-          
-                <div className="relative flex-shrink-0 mr-5">
-                  <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-400 border rounded-full dark:text-gray-800 dark:border-gray-50"></span>
-                  <img
-                    src="https://source.unsplash.com/50x50/?portrait"
-                    alt=""
-                    className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
-                  />
-                </div>
-              
+              <div className="relative flex-shrink-0 mr-5">
+                <ImageHoverPopup></ImageHoverPopup>
+                <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-400 border rounded-full dark:text-gray-800 dark:border-gray-50"></span>
+                <title>Name</title>
+              </div>
             ) : (
               <div className=""></div>
             )}
@@ -133,6 +135,7 @@ const Nav = () => {
           )}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

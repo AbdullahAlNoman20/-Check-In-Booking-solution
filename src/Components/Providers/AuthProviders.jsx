@@ -1,6 +1,5 @@
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
@@ -51,14 +50,14 @@ const AuthProviders = ({ children }) => {
   };
 
   // Update Profile
-  const updateprofile = (name,image) => {
-   return updateProfile(auth.currentUser, {
+  // const updateprofile = (name,image) => {
+  //  return updateProfile(auth.currentUser, {
 
-      displayName: name,
-      photoURL: image,
+  //     displayName: name,
+  //     photoURL: image,
 
-    })
-  };
+  //   })
+  // };
 
   // For LogIn
   const signIn = (email, password) => {

@@ -1,14 +1,23 @@
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
 
 
 const Register = () => {
 
-	const {registerUser,setUser,updateProfile} = useContext(AuthContext)
+	const navigateHome = useNavigate();
+
+
+	const {registerUser,setUser} = useContext(AuthContext)
 
 	const [error,setError] = useState(" ")
+	const [registerError,setRegisterError] = useState(" ")
 
 	// console.log(registerUser);
 
@@ -31,7 +40,9 @@ const Register = () => {
 			setError("Password has no lowercase letter")
 			return
 		}
-		else setError('')
+		// Resat Error 
+		setError('')
+		setRegisterError('')
 
 		console.log(name,email,photo,password)
 
@@ -40,11 +51,16 @@ const Register = () => {
 		.then (result => {
 			{
 				setUser(result.user)
+				e.target.reset()
+				navigateHome('/')
+				toast.success('Welcome to Check-In');
 			}
 		})
 
 		.catch(error =>{
 			console.error(error)
+			setRegisterError(error.message)
+			toast.error(error.message);
 		})
 
 		
@@ -69,23 +85,23 @@ const Register = () => {
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Your Name</label>
 				</div>
-				<input name='name' type="text" placeholder="Username" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+				<input required name='name' type="text" placeholder="Username" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
 			<div>
 				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-				<input name='email' type="text"  placeholder="Email" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+				<input required name='email' type="text"  placeholder="Email" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Photo URL</label>
 				</div>
-				<input name='photo' type="text" placeholder="https/" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+				<input required name='photo' type="text" placeholder="https/" className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-sm">Password</label>
 				</div>
-				<input name='password' type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
+				<input required name='password' type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
 			{
 				error && <p className="text-red-600">{error}</p>
 			}
@@ -94,6 +110,9 @@ const Register = () => {
 		<div className="space-y-2">
 			<div>
 				<button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">Register</button>
+				{
+					registerError && <p className='text-red-500'>{registerError}</p>
+				}
 			</div>
 			<p className="px-6 text-sm text-center dark:text-gray-600">Already have Account?
             <NavLink to="/login">
@@ -104,6 +123,7 @@ const Register = () => {
 		</div>
 	</form>
 </div>
+<ToastContainer />
         </div>
     );
 };
