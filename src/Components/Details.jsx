@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const Details = () => {
@@ -10,11 +11,15 @@ const Details = () => {
 
   return (
     <div className="p-5 bg-sky-900">
+      <Helmet>
+        <title>Check-In | Details</title>
+      </Helmet>
       <section className="dark:bg-sky-900 dark:text-gray-800">
         <div className="container flex flex-col-reverse mx-auto lg:flex-row">
-          <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-white dark:text-black" 
-          data-aos-duration="2000"
-          data-aos="fade-right"
+          <div
+            className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-white dark:text-black"
+            data-aos-duration="2000"
+            data-aos="fade-right"
           >
             <div className="flex space-x-2 sm:space-x-4">
               <svg
@@ -56,7 +61,7 @@ const Details = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-            <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
               <div className="space-y-2">
                 <p className="text-lg font-medium leading-snug">
                   {service.rating}
@@ -64,7 +69,7 @@ const Details = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-            <i className="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
               <div className="space-y-2">
                 <p className="text-lg font-medium leading-snug">
                   {service.location}
@@ -72,7 +77,7 @@ const Details = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-            <i className="fa-regular fa-bookmark"></i>
+              <i className="fa-regular fa-bookmark"></i>
               <div className="space-y-2">
                 <p className="text-lg font-medium leading-snug">
                   {service.booking_status}
@@ -83,12 +88,11 @@ const Details = () => {
             <button className="btn btn-outline btn-warning w-full">
               Book Now
             </button>
-
-
           </div>
-          <div className="lg:w-1/2 xl:w-3/5 dark:bg-sky-900" 
-          data-aos-duration="2000"
-          data-aos="fade-left"
+          <div
+            className="lg:w-1/2 xl:w-3/5 dark:bg-sky-900"
+            data-aos-duration="2000"
+            data-aos="fade-left"
           >
             <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
               <img

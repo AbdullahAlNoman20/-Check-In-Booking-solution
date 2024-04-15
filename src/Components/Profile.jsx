@@ -1,8 +1,16 @@
-
+import { useContext } from "react";
+import { AuthContext } from "./Providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 const Profile = ({ children }) => {
+  const { user } = useContext(AuthContext);
+  // console.log(user);
+
   return (
     <div className="">
+      <Helmet>
+        <title>Check-In | User Profile</title>
+      </Helmet>
       <section className="p-6 dark:bg-sky-900 dark:text-gray-900">
         <form
           noValidate=""
@@ -21,7 +29,7 @@ const Profile = ({ children }) => {
               data-aos="zoom-in"
             >
               <div className="col-span-full sm:col-span-3">
-                <label htmlFor="username" className="text-sm">
+                <label htmlFor="username" className="text-sm font-bold">
                   Name
                 </label>
                 <input
@@ -32,7 +40,7 @@ const Profile = ({ children }) => {
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
-                <label htmlFor="website" className="text-sm">
+                <label htmlFor="website" className="text-sm font-bold">
                   Photo URL
                 </label>
                 <input
@@ -43,7 +51,7 @@ const Profile = ({ children }) => {
                 />
               </div>
               <div className="col-span-full">
-                <label htmlFor="bio" className="text-sm">
+                <label htmlFor="bio" className="text-sm font-bold">
                   Bio
                 </label>
                 <textarea
@@ -58,14 +66,11 @@ const Profile = ({ children }) => {
                 </label>
                 <div className="flex items-center space-x-2">
                   <img
-                    src="https://source.unsplash.com/30x30/?random"
+                    src="https://source.unsplash.com/50x50/?portrait"
                     alt=""
                     className="w-10 h-10 dark:bg-gray-500 rounded-full dark:bg-gray-300"
                   />
-                  <button
-                    type="button"
-                    className="btn btn-outline btn-success"
-                  >
+                  <button type="button" className="btn btn-outline btn-success">
                     Save
                   </button>
                 </div>

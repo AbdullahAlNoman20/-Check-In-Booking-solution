@@ -10,7 +10,7 @@
   
   .popup {
     position: absolute;
-    bottom: -80%; /* Adjust this to control the popup position */
+    bottom: -100%; /* Adjust this to control the popup position */
     left: 50%; /* Center the popup */
     transform: translateX(-50%);
     background-color: black;
@@ -18,7 +18,8 @@
     padding: 5px 10px;
     border-radius: 5px;
     white-space: nowrap;
-    display: none; /* Initially hide the popup */
+    display: none; 
+    z-index: 10;/* Initially hide the popup */
   }
   
   .image-container:hover .popup {

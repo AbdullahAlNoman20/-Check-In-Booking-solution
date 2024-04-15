@@ -8,10 +8,10 @@ const Footer = () => {
   <nav data-aos-duration="2000"
 data-aos="zoom-in">
     <h6 className="footer-title">Services</h6> 
-    <a className="link link-hover">Branding</a>
-    <a className="link link-hover">Design</a>
-    <a className="link link-hover">Marketing</a>
-    <a className="link link-hover">Advertisement</a>
+    <a className="link link-hover">Restaurant</a>
+    <a className="link link-hover">Hotel</a>
+    <a className="link link-hover">Reassort</a>
+    <a className="link link-hover">Villa</a>
   </nav> 
   <nav data-aos-duration="2000"
 data-aos="zoom-in">

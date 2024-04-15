@@ -9,6 +9,8 @@ import { AuthContext } from "./Providers/AuthProviders";
 
 const Login = () => {
 
+  const navigateHome = useNavigate();
+
   // For Showing Error
 
   const [loginError,setLoginError] = useState(" ")
@@ -19,7 +21,7 @@ const Login = () => {
   // after login user where to go
   const location = useLocation();
   const navigate = useNavigate();
-  const navigateHome = useNavigate();
+  
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -88,7 +90,7 @@ const Login = () => {
     if (user) {
       navigate(location.state);
     }
-  });
+  },[]);
 
   return (
     <div className=" flex justify-center py-5 bg-sky-900">

@@ -1,7 +1,11 @@
-import { useState } from "react";
-import './ImageHoverPopup.css';
+import { useContext, useState } from "react";
+import "./ImageHoverPopup.css";
+import { AuthContext } from "./Providers/AuthProviders";
 
 const ImageHoverPopup = () => {
+  const { user } = useContext(AuthContext);
+  // console.log(user);
+
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => setIsHovering(true);
@@ -15,11 +19,23 @@ const ImageHoverPopup = () => {
         onMouseOut={handleMouseOut}
       >
         <img
-                    src="https://source.unsplash.com/50x50/?portrait"
-                    alt=""
-                    className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
-                  />
-        {isHovering && <div className="popup">Username</div>}
+          src="https://source.unsplash.com/50x50/?portrait"
+          alt=""
+          className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
+        />
+        {isHovering && (
+          <div className="popup">
+            <div className=" font-bold mb-2">
+              {user && (
+                <p className="">{user.displayName}</p>
+              )|| <p>No Name</p>}
+            </div>
+
+            <div className="">
+              {user && <p className="underline ">{user.email}</p>}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

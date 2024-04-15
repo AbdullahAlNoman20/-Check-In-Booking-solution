@@ -54,17 +54,17 @@ const About = () => {
 			<details className="w-full border rounded-lg"data-aos-duration="1000"
           data-aos="fade-right">
 				<summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Q1: Can I modify or cancel my booking after it's been made?</summary>
-				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">A1: Yes, you can modify or cancel your booking directly through your user account on our website. For specific conditions and potential charges related to cancellations or modifications, please refer to our booking terms and conditions.</p>
+				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">A1: Yes, you can modify or cancel your booking directly through your user account on our website. For specific conditions and potential charges related to cancellations or modifications, please refer to our booking terms and conditions.</p>
 			</details>
 			<details className="w-full border rounded-lg"data-aos-duration="2000"
           data-aos="fade-right">
 				<summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Q2: Are there any benefits to creating an account on the Check-In website?</summary>
-				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">A2: Absolutely! Creating an account allows you to manage your bookings easily, save your preferences, access exclusive deals, and join our loyalty program for even more benefits.</p>
+				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">A2: Absolutely! Creating an account allows you to manage your bookings easily, save your preferences, access exclusive deals, and join our loyalty program for even more benefits.</p>
 			</details>
 			<details className="w-full border rounded-lg"data-aos-duration="2500"
           data-aos="fade-right">
 				<summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Q3: How can I ensure my stay is environmentally friendly?</summary>
-				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">A3: We're committed to sustainability. You can participate by opting out of daily linen changes, using water responsibly, and joining our community and environmental initiatives during your stay.</p>
+				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">A3: We're committed to sustainability. You can participate by opting out of daily linen changes, using water responsibly, and joining our community and environmental initiatives during your stay.</p>
 			</details>
 		</div>
 	</div>

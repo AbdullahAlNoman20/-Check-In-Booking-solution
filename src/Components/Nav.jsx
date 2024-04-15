@@ -63,6 +63,7 @@ const Nav = () => {
                   </a>
                 </li>
               </NavLink>
+              
             </ul>
           </div>
           <a
@@ -107,9 +108,6 @@ const Nav = () => {
         </div>
 
         <div className="navbar-end ">
-          <div className="mr-3 hidden lg:block">
-            {user && <p className="underline ">{user.email}</p>}
-          </div>
           <div className="">
             {user?.email ? (
               <div className="relative flex-shrink-0 mr-5">

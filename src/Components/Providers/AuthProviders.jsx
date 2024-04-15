@@ -8,6 +8,7 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
   updateProfile,
+  
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../../../public/firebase.init";
@@ -50,14 +51,14 @@ const AuthProviders = ({ children }) => {
   };
 
   // Update Profile
-  // const updateprofile = (name,image) => {
-  //  return updateProfile(auth.currentUser, {
+ const  updateProfile = (name,photo) => {
+   return updateProfile(auth.currentUser, {
 
-  //     displayName: name,
-  //     photoURL: image,
+    displayName: name,
+      photoURL: photo,
 
-  //   })
-  // };
+    })
+  };
 
   // For LogIn
   const signIn = (email, password) => {
@@ -87,7 +88,7 @@ const AuthProviders = ({ children }) => {
     googleLogin,
     facebookLogin,
     githubLogin,
-    // updateProfile
+    updateProfile
   };
 
   return (
