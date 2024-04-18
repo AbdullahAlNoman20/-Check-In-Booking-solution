@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "./Providers/AuthProviders";
 import { Helmet } from "react-helmet-async";
-
+import { toast } from "react-toastify";
 const Profile = ({ children }) => {
   const { user,updateUserProfile } = useContext(AuthContext);
   // console.log(user);
@@ -20,13 +20,13 @@ const Profile = ({ children }) => {
                 .then(resul=>{
                     
                     console.log(resul.user)
-                    // toast.success("Welcome to Check-In");
+                    toast.success("Save New Info Successfully");
           
 
                 })
                 .catch(error=>{
                     console.log(error.message)
-                    // toast.warn(error.message);
+                    toast.warn(error.message);
                 })
   };
 
@@ -75,7 +75,7 @@ const Profile = ({ children }) => {
                 name="photo"
                   id="website"
                   type="text"
-                  placeholder="https://"
+                  placeholder={user.photoURL ? user.photoURL : "Photo URL"}
                   className="border p-2 w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300"
                 />
               </div>

@@ -14,7 +14,7 @@ const ImageHoverPopup = () => {
   return (
     <div>
       <div
-        className="image-container w-14"
+        className="image-container w-10 lg:w-14"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >

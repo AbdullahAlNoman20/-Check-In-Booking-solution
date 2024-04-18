@@ -13,7 +13,7 @@ const ProtectedRoute = ({children}) => {
 
 
     if (loading){
-        return <span className="loading loading-spinner loading-lg"></span>
+        return <span className="loading loading-spinner loading-lg bg-blue-900"></span>
     }
 
     if (user){
