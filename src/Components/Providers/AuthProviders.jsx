@@ -8,7 +8,6 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
   updateProfile,
-  
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../../../public/firebase.init";
@@ -21,6 +20,7 @@ export const AuthContext = createContext(null);
 
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Google Provider
   const googleProvider = new GoogleAuthProvider();
@@ -33,39 +33,53 @@ const AuthProviders = ({ children }) => {
 
   // login by google
   const googleLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, googleProvider);
   };
 
   // login by Facebook
   const facebookLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, facebookProvider);
   };
   // login by Github
   const githubLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, githubProvider);
   };
 
   // Create User
   const registerUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Update Profile
- const  updateProfile = (name,photo) => {
-   return updateProfile(auth.currentUser, {
+  // const updateProfile = (name, photo) => {
+  //   return updateProfile(auth.currentUser, {
+  //     displayName: name,
+  //     photoURL: photo,
+  //   });
+  // };
 
-    displayName: name,
-      photoURL: photo,
+  const updateUserProfile=(username,photourl)=>{
+    console.log(username,photourl)
+    return updateProfile(auth.currentUser, {
+        displayName: username,
+         photoURL: photourl
+      })
+}
 
-    })
-  };
+
 
   // For LogIn
   const signIn = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
   // For logout
   const logOut = () => {
+    setLoading(true)
     return signOut(auth);
   };
 
@@ -73,6 +87,8 @@ const AuthProviders = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       // console.log("user from auth", currentUser);
       setUser(currentUser);
+      setLoading(false)
+      console.log(currentUser)
     });
     return () => {
       unSubscribe();
@@ -88,7 +104,8 @@ const AuthProviders = ({ children }) => {
     googleLogin,
     facebookLogin,
     githubLogin,
-    updateProfile
+    updateUserProfile,
+    loading
   };
 
   return (

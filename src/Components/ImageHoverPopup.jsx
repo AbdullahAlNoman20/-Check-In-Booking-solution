@@ -14,12 +14,12 @@ const ImageHoverPopup = () => {
   return (
     <div>
       <div
-        className="image-container"
+        className="image-container w-14"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
         <img
-          src="https://source.unsplash.com/50x50/?portrait"
+          src={user.photoURL ? user.photoURL : "P"}
           alt=""
           className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
         />

@@ -1,5 +1,5 @@
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 import "animate.css";
 
 import { useContext, useState } from "react";
@@ -10,7 +10,7 @@ import { AuthContext } from "./Providers/AuthProviders";
 const Register = () => {
   const navigateHome = useNavigate();
 
-  const { registerUser, setUser, updateProfile } = useContext(AuthContext);
+  const { registerUser, setUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState(" ");
   const [registerError, setRegisterError] = useState(" ");
 
@@ -22,6 +22,8 @@ const Register = () => {
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
+
+    console.log(name,photo)
 
     if (password.length < 6) {
       setError("Password less then 6 character");
@@ -42,23 +44,47 @@ const Register = () => {
     console.log(name, email, photo, password);
 
     // 	// Create new user
-    registerUser(email, password,name,photo)
-      .then((result) => {
-        setUser(result.user);
-        console.log(result);
-        toast.success("Welcome to Check-In");
-        e.target.reset();
-        navigateHome("/");
-        updateProfile(name, photo).then(()=>{
+    // registerUser(email, password)
+    //   .then((result) => {
+    //     console.log(result);
+    //     toast.success("Welcome to Check-In");
+    //     e.target.reset();
+    //     updateProfile(name, photo)
+    //     .then(()=>{
           
-        });
-      })
+    //     })
+    //     .catch((error)=>{
+    //       console.error(error.message);
+    //     })
+    //     navigateHome("/");
+        
+    //   })
 
-      .catch((error) => {
-        console.error(error);
-        setRegisterError(error.message);
-        toast.warn(error.message);
-      });
+    //   .catch((error) => {
+    //     console.error(error);
+    //     setRegisterError(error.message);
+    //     toast.warn(error.message);
+    //   });
+
+      registerUser(email, password)
+            .then(result => {
+              updateUserProfile(name,photo)
+                .then(resul=>{
+                    
+                    console.log(resul)
+                    toast.success("Welcome to Check-In");
+                    navigateHome("/");
+
+                })
+                .catch(error=>{
+                    console.log(error.message)
+                    toast.warn(error.message);
+                })
+            })
+            .catch(error => {
+                console.log(error)
+                toast.warn(error.message);
+            })
   };
 
   return (
@@ -166,7 +192,6 @@ const Register = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+import { toast } from 'react-toastify';
 import 'animate.css';
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -20,7 +20,7 @@ const Login = () => {
 
   // after login user where to go
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   
 
   const handleLogin = (e) => {
@@ -40,7 +40,7 @@ const Login = () => {
         console.log(Result.user);
         toast.success('Login Successfully');
         e.target.reset()
-        navigateHome('/')
+        navigateHome(location.state ? location.state : "/")
       })
 
       .catch((error) => {
@@ -56,7 +56,9 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((Result) => {
-        setUser(Result.user);
+        // setUser(Result.user);
+        toast.success('Login Successfully');
+        navigateHome(location.state ? location.state : "/")
       })
 
       .catch((error) => {
@@ -67,18 +69,23 @@ const Login = () => {
   const handleFacebookLogin = () => {
     facebookLogin()
       .then((Result) => {
-        setUser(Result.user);
+        // setUser(Result.user);
+        toast.success('Login Successfully');
+        navigateHome(location.state ? location.state : "/")
       })
 
       .catch((error) => {
         console.log(error);
+
       });
   };
   // Github Login
   const handleGithubLogin = () => {
     githubLogin()
       .then((Result) => {
-        setUser(Result.user);
+        // setUser(Result.user);
+        toast.success('Login Successfully');
+        navigateHome(location.state ? location.state : "/")
       })
 
       .catch((error) => {
@@ -86,11 +93,11 @@ const Login = () => {
       });
   };
 
-  useEffect(() => {
-    if (user) {
-      navigate(location.state);
-    }
-  },[]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate(location.state);
+  //   }
+  // },[]);
 
   return (
     <div className=" flex justify-center py-5 bg-sky-900">
@@ -211,7 +218,6 @@ const Login = () => {
         </p>
 
       </div>
-      <ToastContainer />
     </div>
   
 );

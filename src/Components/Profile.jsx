@@ -3,8 +3,34 @@ import { AuthContext } from "./Providers/AuthProviders";
 import { Helmet } from "react-helmet-async";
 
 const Profile = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user,updateUserProfile } = useContext(AuthContext);
   // console.log(user);
+
+
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    
+
+    console.log(name,photo)
+
+              updateUserProfile(name,photo)
+                .then(resul=>{
+                    
+                    console.log(resul.user)
+                    // toast.success("Welcome to Check-In");
+          
+
+                })
+                .catch(error=>{
+                    console.log(error.message)
+                    // toast.warn(error.message);
+                })
+  };
+
+
 
   return (
     <div className="">
@@ -13,6 +39,7 @@ const Profile = ({ children }) => {
       </Helmet>
       <section className="p-6 dark:bg-sky-900 dark:text-gray-900">
         <form
+        onSubmit={handleSave}
           noValidate=""
           action=""
           className="container flex flex-col mx-auto space-y-12"
@@ -33,9 +60,10 @@ const Profile = ({ children }) => {
                   Name
                 </label>
                 <input
+                name= "name"
                   id="username"
                   type="text"
-                  placeholder="Name"
+                  placeholder={user.displayName ? user.displayName : "Your Name" }
                   className="border p-2  w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black focus:dark:ring-violet-600 dark:border-gray-300"
                 />
               </div>
@@ -44,6 +72,7 @@ const Profile = ({ children }) => {
                   Photo URL
                 </label>
                 <input
+                name="photo"
                   id="website"
                   type="text"
                   placeholder="https://"
@@ -66,11 +95,11 @@ const Profile = ({ children }) => {
                 </label>
                 <div className="flex items-center space-x-2">
                   <img
-                    src="https://source.unsplash.com/50x50/?portrait"
+                    src={user.photoURL ? user.photoURL : "P"}
                     alt=""
                     className="w-10 h-10 dark:bg-gray-500 rounded-full dark:bg-gray-300"
                   />
-                  <button type="button" className="btn btn-outline btn-success">
+                  <button type="submit" className="btn btn-outline btn-success">
                     Save
                   </button>
                 </div>

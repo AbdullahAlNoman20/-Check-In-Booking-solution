@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -46,12 +48,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
-        loader: () => fetch("../Service.json"),
+        element: <ProtectedRoute><Details></Details></ProtectedRoute>,
+        loader: () => fetch("../Service.json")
       },
       {
         path: "/updateProfile",
-        element: <ProtectedRoute><Profile></Profile></ProtectedRoute>
+        element: <ProtectedRoute><Profile></Profile></ProtectedRoute>,
       }
     ],
   },
@@ -64,6 +66,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <RouterProvider router={router}></RouterProvider>
       </HelmetProvider>
     </AuthProviders>
+    <ToastContainer></ToastContainer>
   </React.StrictMode>
   
 );
