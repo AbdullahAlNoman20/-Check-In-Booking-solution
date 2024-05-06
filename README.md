@@ -1,7 +1,7 @@
 # Check-in: (Web-Solution for Hotel Reservation)
 
 Live Site: 
-# checkin-24.surge.sh
+# https://check-in-24.netlify.app/
 
 # npm packages Use:
 a. AOS Package
